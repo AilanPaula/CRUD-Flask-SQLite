@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Flask</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+        }
+        #edit-section {
+            display: none;
+        }
+        .text-danger {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">CRUD Flask</h1>
+
+        <!-- Formulário para criar usuário -->
+        <div class="card p-4 mb-4">
+            <h2>Criar Usuário</h2>
+            <form id="create-form">
+                <div class="mb-3">
+                    <label for="create-name" class="form-label">Nome</label>
+                    <input type="text" id="create-name" class="form-control" placeholder="Nome" required>
+                    <div id="create-name-error" class="text-danger"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="create-email" class="form-label">Email</label>
+                    <input type="email" id="create-email" class="form-control" placeholder="Email" required>
+                    <div id="create-email-error" class="text-danger"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Criar</button>
+            </form>
+        </div>
+
+        <!-- Formulário para editar usuário -->
+        <div id="edit-section" class="card p-4 mb-4">
+            <h2>Editar Usuário</h2>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="mb-3">
+                    <label for="edit-name" class="form-label">Nome</label>
+                    <input type="text" id="edit-name" class="form-control" placeholder="Nome" required>
+                    <div id="edit-name-error" class="text-danger"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="edit-email" class="form-label">Email</label>
+                    <input type="email" id="edit-email" class="form-control" placeholder="Email" required>
+                    <div id="edit-email-error" class="text-danger"></div>
+                </div>
+                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                <button type="button" onclick="cancelEdit()" class="btn btn-secondary">Cancelar</button>
+            </form>
+        </div>
+
+        <!-- Lista de usuários -->
+        <div class="card p-4">
+            <h2>Lista de Usuários</h2>
+            <div id="user-list" class="list-group"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
